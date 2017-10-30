@@ -12,7 +12,7 @@
 
     <ion-item>
       <ion-label stacked>Correo</ion-label>
-      <ion-input formControlName="email" type="email" placeholder="Your email address"
+      <ion-input formControlName="email" type="email" placeholder="Tu correo"
         [class.invalid]="!signupForm.controls.email.valid && signupForm.controls.email.dirty"></ion-input>
     </ion-item>
     <ion-item class="error-message" *ngIf="!signupForm.controls.email.valid  && signupForm.controls.email.dirty">
@@ -21,7 +21,7 @@
 
     <ion-item>
       <ion-label stacked>Contraseña</ion-label>
-      <ion-input formControlName="password" type="password"  placeholder="Your password"
+      <ion-input formControlName="password" type="password"  placeholder="Tu contraseña"
         [class.invalid]="!signupForm.controls.password.valid && signupForm.controls.password.dirty"></ion-input>
     </ion-item>
     <ion-item class="error-message" *ngIf="!signupForm.controls.password.valid  && signupForm.controls.password.dirty">
