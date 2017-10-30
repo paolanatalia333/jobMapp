@@ -1,0 +1,120 @@
+{
+     "usuarios": [
+          {
+               "login": {
+                    "usuario": "",
+                    "contraseña": ""
+               },
+               "nombre": "",
+               "identificacion": "",
+               "ubicacion": [{
+                         "direccion": "",
+                         "ciudad": "",
+                         "pais": "",
+                         "codigoPostal": "000",
+                         "tipo": "",
+                         "detalles": ""
+               }
+                            ],
+               "telefono": [{
+                         "tipo": "",
+                         "extencion": "000",
+                         "numero": "000"
+
+               }
+                           ],
+               "fechaDeNacimiento": "2017-07-21T10:30:34",
+               "infoBancaria": {
+                    "Por identificar": ""
+               },
+               "calificacion": {
+                    "estrelllas": "000",
+                    "insignias": {
+                         "por identificar": ""
+                    }
+               }
+
+          }
+
+],
+
+
+     "workiis": [
+          {
+               "publicacion": {
+                    "titulo": "",
+                    "descripcion": "",
+                    "media": [
+                         {
+                              "source": "",
+                              "tipo": ""
+                         }
+                    ],
+                    "comentarios": [
+                         {
+                              "idUsuario": "",
+                              "texto": "",
+                              "fecha": "2017-07-21T10:30:34"
+                         }
+                    ],
+                    "fecha": "2017-07-21T10:30:34",
+                    "keyWords": [{
+                              "nombre": ""
+                    }
+                                ]
+               },
+
+               "postulantes": [{
+                         "idUsuario": ""
+                    }
+                              ],
+               "estado": [{
+                         "nombre": "",
+                         "fecha": "2017-07-21T10:30:34"
+                    }
+                         ],
+               "categoria": [
+                    {
+                         "nombre": ""
+                         }
+                    ],
+               "ubicacion": {
+                    "direccion": "",
+                    "ciudad": "",
+                    "pais": "",
+                    "codigoPostal": "000",
+                    "tipo": "",
+                    "detalles": ""
+               },
+               "precio": {
+                    "valor": "$000",
+                    "moneda": ""
+               },
+               "detalles": "",
+               "idWorker": "",
+               "idAutor": "",
+               "fechaLimite": "2017-07-21T10:30:34",
+               "pago": {
+                    "fecha": "2017-07-21T10:30:34",
+                    "por identificar": ""
+               },
+               "valoracion": [
+                    {
+                         "idUsuario": "",
+                         "preguntas": {
+                              "por identificar": ""
+                         },
+                         "insignias": {
+                              "por identificar": ""
+                         },
+                         "puntaje": "000",
+                         "fecha": "2017-07-21T10:30:34"
+                    }
+               ]
+               }
+
+
+     ]
+
+
+}

@@ -4,7 +4,7 @@ var Schema = mongoose.Schema;
 //conectar con mongo a la base de datos workiidb-fotos
 //var connection = mongoose.createConnection("mongodb://localhost/workiidb-fotos");
 mongoose.connect("mongodb://localhost/workiidb-fotos");
-var posibles_valores = ["Masculino", "Femenino"];
+var posibles_valores = ["Masculino", "Femenino", "Otro"];
 var email_match = [/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/, "Ingresa un email válido"];
 var pass_validation = {
      validator: function (p) {
@@ -29,7 +29,7 @@ var user_schema = new Schema({
      },
      age: {
           type: Number,
-          min: 16,
+          min: 18,
           max: 100
      },
      email: {

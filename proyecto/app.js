@@ -21,9 +21,6 @@ app.use(cookieSession({
      keys: ["llave-1", "llave-2"]
 }));
 
-
-
-
 //se trae jade que es algo que se vuelve en html
 app.set("view engine", "jade");
 
