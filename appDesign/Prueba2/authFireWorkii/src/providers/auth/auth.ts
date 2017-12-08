@@ -16,11 +16,18 @@ export class AuthProvider {
   }
 
   logoutUser(): Promise<any> {
+       const userId: string = this.afAuth.auth.currentUser.uid;
+       firebase.database()
+       .ref(`/usuarios/${userId}`).off();
+
     return this.afAuth.auth.signOut();
   }
 
   signupUser(newEmail: string, newPassword: string): Promise<any> {
-    return this.afAuth.auth.createUserWithEmailAndPassword(newEmail, newPassword);
+    return this.afAuth.auth
+         .createUserWithEmailAndPassword(newEmail, newPassword)
+       .then(newUser=> {firebase.database().ref(`/usuarios/${newUser.uid}/email`).set(newEmail);}
+            ).catch(error=> {console.error(error);thrownewError(error);});
   }
 
 }
