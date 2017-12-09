@@ -1,20 +1,26 @@
 <ion-header>
-  <ion-navbar>
-    <ion-title>
-      Bienvenido a Workii
-    </ion-title>
-  </ion-navbar>
+    <ion-navbar>
+        <ion-title>
+            Bienvenido a Workii
+        </ion-title>
+    </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-  Hola
-  <p>
-    {{userEm}}
-  </p>
+    Hola
+    <p>
+        {{userEm}}
+    </p>
     <button ion-button block (click)="logoutUsr()">
     Salir
   </button>
     <button ion-button block (click)="goToProfile()">
     Ir a mi perfil
   </button>
+    <button ion-button block color="primary" (click)="goToCreate()">
+Create a new Event
+</button>
+    <button ion-button block color="primary" (click)="goToList()">
+See your events
+</button>
 </ion-content>

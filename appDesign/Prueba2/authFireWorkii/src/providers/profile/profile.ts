@@ -56,7 +56,7 @@ firebase.auth().onAuthStateChanged( user =>  {
         return this.currentUser.reauthenticateWithCredential(credential)
             .then(user => {
             this.currentUser.updatePassword(newPassword).then(user => {
-                console.log('PasswordChanged');
+                console.log('Password Changed');
             });
         })
             .catch(error => {

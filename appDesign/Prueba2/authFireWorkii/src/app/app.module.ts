@@ -13,6 +13,8 @@ import { HomePage } from '../pages/home/home';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { ProfileProvider } from '../providers/profile/profile';
+import { WorkiiProvider } from '../providers/workii/workii';
+import { Camera } from '@ionic-native/camera';
 
 // AF2 Settings
 const firebaseConfig = {
@@ -45,7 +47,9 @@ const firebaseConfig = {
     SplashScreen,
     StatusBar,
     AuthProvider,
-    ProfileProvider
+    ProfileProvider,
+    WorkiiProvider,
+      Camera
   ]
 })
 export class AppModule {}
