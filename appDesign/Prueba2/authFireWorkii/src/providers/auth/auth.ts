@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from 'angularfire2/auth';
-import firebase from 'firebase/app';
+//import firebase from 'firebase/app';
+import firebase from 'firebase';
 
 @Injectable()
 export class AuthProvider {
@@ -26,8 +27,12 @@ export class AuthProvider {
   signupUser(newEmail: string, newPassword: string): Promise<any> {
     return this.afAuth.auth
          .createUserWithEmailAndPassword(newEmail, newPassword)
-       .then(newUser=> {firebase.database().ref(`/usuarios/${newUser.uid}/email`).set(newEmail);}
-            ).catch(error=> {console.error(error);thrownewError(error);});
+       .then(newUser=> {
+        firebase.database().ref(`/usuarios/${newUser.uid}/email`).set(newEmail);
+    }
+            ).catch(error=> {
+        console.error(error);
+                             throw new Error(error);});
   }
 
 }
