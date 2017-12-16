@@ -2,6 +2,13 @@ import {
     Injectable
 } from '@angular/core';
 import {
+    IonicPage,
+    NavController,
+    NavParams,
+    Alert,
+    AlertController
+} from 'ionic-angular';
+import {
     Http
 } from '@angular/http';
 import 'rxjs/add/operator/map';
@@ -20,7 +27,8 @@ export class WorkiiProvider {
 
     public eventListRef: firebase.database.Reference;
     private usId;
-    constructor() {
+
+    constructor(public alertCtrl: AlertController) {
         console.log('Hello WorkiiProvider Provider');
 
 
@@ -37,16 +45,16 @@ export class WorkiiProvider {
     createEvent(
         eventName: string,
         eventDate: string,
-        eventPrice: number,
-        eventCost: number
+        eventPrice: number
     ): firebase.database.ThenableReference {
+           var fe= new Date().toLocaleString();
+             console.log(fe);
         return this.eventListRef.push({
             name: eventName,
             date: eventDate,
             price: eventPrice * 1,
-            cost: eventCost * 1,
-            revenue: eventCost * -1,
-            idAutor: this.usId
+            idAutor: this.usId,
+            fecha: fe
         });
     }
 
@@ -59,17 +67,34 @@ export class WorkiiProvider {
     addGuest(guestName: string,
         eventId: string,
         eventPrice: number,
-        guestPicture: string = null): PromiseLike < any > {
-        if (guestPicture != null) {
+        guestPicture: string): PromiseLike<any> {
+
+
+
+
+if (guestPicture != null) {
+      const alert: Alert = this.alertCtrl.create({
+            message: "Your first name & lastname",
+            buttons: [
+                {
+                    text: "Cancel"
+                },
+                {
+                    text: "Save"
+                }
+            ]
+        });
+        alert.present();
+
             firebase
                 .storage()
-                .ref(`/guestProfile/${newGuest.key}/profilePicture.png`)
+                .ref('/guestProfile/').child('profilePicture.png')
                 .putString(guestPicture, 'base64', {
                     contentType: 'image/png'
                 })
                 .then(savedPicture => {
                     this.eventListRef
-                        .child(`${eventId}/guestList/${newGuest.key}/profilePicture`)
+                        .child(`${eventId}/guestList/profilePicture`)
                         .set(savedPicture.downloadURL);
                 });
         }
@@ -78,12 +103,20 @@ export class WorkiiProvider {
             .push({
                 guestName
             })
-            .then(newGuest => {
-                this.eventListRef.child(eventId).transaction(event => {
-                    event.revenue += eventPrice;
-                    return event;
-                });
+            .then((newGuest) => {
+
+
+
             });
+
+
+
+
+
+
+
     }
 
 }
+
+

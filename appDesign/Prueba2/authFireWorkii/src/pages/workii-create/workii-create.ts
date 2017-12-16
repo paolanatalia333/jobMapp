@@ -32,11 +32,10 @@ export class WorkiiCreatePage {
     createEvent(
         eventName: string,
         eventDate: string,
-        eventPrice: number,
-        eventCost: number
+        eventPrice: number
     ): void {
         this.eventProvider
-            .createEvent(eventName, eventDate, eventPrice, eventCost)
+            .createEvent(eventName, eventDate, eventPrice)
             .then(newEvent => {
                 this.navCtrl.pop();
             });

@@ -4,7 +4,9 @@ import {
 import {
     IonicPage,
     NavController,
-    NavParams
+    NavParams,
+    Alert,
+    AlertController
 } from 'ionic-angular';
 import {
     WorkiiProvider
@@ -12,6 +14,7 @@ import {
 import {
     Camera
 } from '@ionic-native/camera';
+import { AndroidPermissions } from '@ionic-native/android-permissions';
 /**
  * Generated class for the WorkiiDetailPage page.
  *
@@ -28,9 +31,10 @@ import {
 })
 export class WorkiiDetailPage {
     public currentEvent: any = {};
-    public guestPicture: string = null;
     public guestName: string = '';
-    constructor(public navCtrl: NavController, public navParams: NavParams, public eventProvider: WorkiiProvider, public cameraPlugin: Camera) {}
+    public guestPicture: string = null;
+    constructor(public navCtrl: NavController, public navParams: NavParams, public eventProvider: WorkiiProvider, public cameraPlugin: Camera, public alertCtrl: AlertController) {
+    }
 
     ionViewDidLoad() {
         console.log('ionViewDidLoad WorkiiDetailPage');
@@ -40,8 +44,10 @@ export class WorkiiDetailPage {
                 this.currentEvent = eventSnapshot.val();
                 this.currentEvent.id = eventSnapshot.key;
             });
+
     }
     addGuest(guestName: string): void {
+
         this.eventProvider
             .addGuest(
                 guestName,
@@ -49,7 +55,7 @@ export class WorkiiDetailPage {
                 this.currentEvent.price,
                 this.guestPicture
             ).
-        then(newGuest => {
+        then(newGuest=> {
             this.guestName = "";
             this.guestPicture = null;
         });
@@ -69,8 +75,14 @@ export class WorkiiDetailPage {
             .then(
                 imageData => {
                     this.guestPicture = imageData;
+
+
                 },
                 error => {
+
+
+
+
                     console.log("ERROR -> " + JSON.stringify(error));
                 }
             );

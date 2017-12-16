@@ -8,6 +8,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
 import { AuthProvider } from '../providers/auth/auth';
 import { HomePage } from '../pages/home/home';
+import { firebaseConfig } from './credentials';
 // Importing AF2 Module
 
 import { AngularFireModule } from 'angularfire2';
@@ -17,14 +18,7 @@ import { WorkiiProvider } from '../providers/workii/workii';
 import { Camera } from '@ionic-native/camera';
 
 // AF2 Settings
-const firebaseConfig = {
-    apiKey: "AIzaSyAQhWisp3h7NGxa2TyVTwCfRRmQCw5olAY",
-    authDomain: "workiiploy.firebaseapp.com",
-    databaseURL: "https://workiiploy.firebaseio.com",
-    projectId: "workiiploy",
-    storageBucket: "workiiploy.appspot.com",
-    messagingSenderId: "1058803298687"
-};
+
 
 @NgModule({
   declarations: [
@@ -49,7 +43,7 @@ const firebaseConfig = {
     AuthProvider,
     ProfileProvider,
     WorkiiProvider,
-      Camera
+    Camera
   ]
 })
 export class AppModule {}
