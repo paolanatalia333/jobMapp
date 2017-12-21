@@ -26,11 +26,7 @@ export class AuthProvider {
 
   signupUser(newEmail: string, newPassword: string): Promise<any> {
     return this.afAuth.auth
-         .createUserWithEmailAndPassword(newEmail, newPassword)
-       .then(newUser=> {
-        firebase.database().ref(`/usuarios/${newUser.uid}/email`).set(newEmail);
-    }
-            ).catch(error=> {
+         .createUserWithEmailAndPassword(newEmail, newPassword).catch(error=> {
         console.error(error);
                              throw new Error(error);});
   }
